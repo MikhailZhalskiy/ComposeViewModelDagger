@@ -42,4 +42,30 @@ sealed class Screen {
             )
         }
     }
+
+    object Other: Screen() {
+
+        override val route: String = "other_screen"
+        private const val otherArg = "other_arg"
+
+        override fun route(): String = "$route/{$otherArg}"
+
+        fun createRouteWithArgs(other: String): String = "$route/$other"
+
+        fun arguments(): List<NamedNavArgument> {
+            return listOf(
+                navArgument(otherArg) { type = NavType.StringType }
+            )
+        }
+
+        data class Arg(
+            val other: String
+        )
+
+        fun getArg(handle: SavedStateHandle): Arg {
+            return Arg(
+                other = handle.get<String>(otherArg).orEmpty()
+            )
+        }
+    }
 }

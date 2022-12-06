@@ -4,8 +4,8 @@ import com.mw.example.composeviewmodeldagger.common.ViewModelFactory
 import dagger.Component
 
 @Component(
-    modules = [AppViewModelModule::class]
+    modules = [OtherViewModelModule::class]
 )
-interface AppComponent {
+interface OtherComponent {
     fun getFactoryViewModelAssistedFactory(): ViewModelFactory
 }

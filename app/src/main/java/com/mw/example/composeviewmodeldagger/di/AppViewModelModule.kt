@@ -1,6 +1,8 @@
 package com.mw.example.composeviewmodeldagger.di
 
-import com.mw.example.composeviewmodeldagger.extensions.ViewModelAssistedFactory
+import com.mw.example.composeviewmodeldagger.common.di.ViewModelAssistedFactoryKey
+import com.mw.example.composeviewmodeldagger.common.di.ViewModelFactoryModule
+import com.mw.example.composeviewmodeldagger.common.ViewModelAssistedFactory
 import com.mw.example.composeviewmodeldagger.ui.screen.DetailEmailViewModel
 import com.mw.example.composeviewmodeldagger.ui.screen.EmailListViewModel
 import dagger.Binds
@@ -10,7 +12,7 @@ import dagger.multibindings.IntoMap
 @Module(
     includes = [ViewModelFactoryModule::class]
 )
-interface ViewModelModule {
+interface AppViewModelModule {
 
     @Binds
     @[IntoMap ViewModelAssistedFactoryKey(EmailListViewModel::class)]

@@ -1,4 +1,4 @@
-package com.mw.example.composeviewmodeldagger.extensions
+package com.mw.example.composeviewmodeldagger.common
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider

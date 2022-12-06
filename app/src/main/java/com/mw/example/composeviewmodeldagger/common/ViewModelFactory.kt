@@ -1,4 +1,4 @@
-package com.mw.example.composeviewmodeldagger.extensions
+package com.mw.example.composeviewmodeldagger.common
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel

@@ -1,7 +1,9 @@
 package com.mw.example.composeviewmodeldagger.ui.screen
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.Button
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
@@ -12,27 +14,18 @@ import com.mw.example.composeviewmodeldagger.common.daggerViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DetailEmailScreen(
-    navigateOtherScreen: (String) -> Unit,
-    viewModel: DetailEmailViewModel = daggerViewModel(),
+fun OtherScreen(
+    viewModel: OtherViewModel = daggerViewModel(),
 ) {
     Column(modifier = Modifier.fillMaxSize()) {
         TopAppBar(
-            title = { Text(text = "DetailEmailScreen") }
+            title = { Text(text = "OtherScreen") }
         )
         Text(
-            text = "Screen.EmailDetail.getArg(handle) = ${viewModel.getArg().email}",
+            text = "Screen.OtherScreen.getArg(handle) = ${viewModel.getArg().other}",
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(16.dp)
         )
-        Spacer(modifier = Modifier.height(32.dp))
-        Button(
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(16.dp), onClick = { navigateOtherScreen("OtherInfo") }
-        ) {
-            Text(text = "Navigate to OtherScreen")
-        }
     }
 }

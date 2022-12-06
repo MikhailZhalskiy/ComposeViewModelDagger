@@ -1,6 +1,6 @@
-package com.mw.example.composeviewmodeldagger.di
+package com.mw.example.composeviewmodeldagger.common.di
 
-import com.mw.example.composeviewmodeldagger.extensions.ViewModelFactory
+import com.mw.example.composeviewmodeldagger.common.ViewModelFactory
 import dagger.Binds
 import dagger.Module
 

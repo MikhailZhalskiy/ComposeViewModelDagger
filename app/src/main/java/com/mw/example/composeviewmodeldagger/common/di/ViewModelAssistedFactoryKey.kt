@@ -1,4 +1,4 @@
-package com.mw.example.composeviewmodeldagger.di
+package com.mw.example.composeviewmodeldagger.common.di
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey

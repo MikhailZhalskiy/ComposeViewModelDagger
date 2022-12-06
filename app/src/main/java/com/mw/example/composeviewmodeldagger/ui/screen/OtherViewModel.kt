@@ -7,12 +7,12 @@ import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject
 
-class DetailEmailViewModel @AssistedInject constructor(
+class OtherViewModel @AssistedInject constructor(
     @Assisted private val handle: SavedStateHandle
 ) : ViewModel() {
 
     @AssistedFactory
-    interface Factory: ViewModelAssistedFactory<DetailEmailViewModel>
+    interface Factory: ViewModelAssistedFactory<OtherViewModel>
 
-    fun getArg(): Screen.EmailDetail.Arg = Screen.EmailDetail.getArg(handle)
+    fun getArg(): Screen.Other.Arg = Screen.Other.getArg(handle)
 }

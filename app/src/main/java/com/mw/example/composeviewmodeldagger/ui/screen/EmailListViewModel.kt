@@ -2,7 +2,7 @@ package com.mw.example.composeviewmodeldagger.ui.screen
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.mw.example.composeviewmodeldagger.extensions.ViewModelAssistedFactory
+import com.mw.example.composeviewmodeldagger.common.ViewModelAssistedFactory
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedFactory
 import dagger.assisted.AssistedInject

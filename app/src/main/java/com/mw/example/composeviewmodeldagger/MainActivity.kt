@@ -10,9 +10,10 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
-import com.mw.example.composeviewmodeldagger.extensions.Inject
+import com.mw.example.composeviewmodeldagger.common.Inject
 import com.mw.example.composeviewmodeldagger.ui.screen.DetailEmailScreen
 import com.mw.example.composeviewmodeldagger.ui.screen.EmailListScreen
+import com.mw.example.composeviewmodeldagger.ui.screen.OtherScreen
 import com.mw.example.composeviewmodeldagger.ui.screen.Screen
 import com.mw.example.composeviewmodeldagger.ui.theme.ComposeViewModelDaggerTheme
 
@@ -25,7 +26,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             ComposeViewModelDaggerTheme {
                 //The first way to use the Inject function
-                Inject(App.instance.getFactoryViewModelAssistedFactory()) {
+                Inject(App.app.getFactoryViewModelAssistedFactory()) {
                     Scaffold {
                         NavHost(
                             navController = navController,
@@ -42,7 +43,18 @@ class MainActivity : ComponentActivity() {
                                 )
                             }
 
-                            addDetailEmailScreen()
+                            composable(
+                                route = Screen.EmailDetail.route(),
+                                arguments = Screen.EmailDetail.arguments()
+                            ) {
+                                DetailEmailScreen(
+                                    navigateOtherScreen = { other ->
+                                        navController.navigate(Screen.Other.createRouteWithArgs(other))
+                                    }
+                                )
+                            }
+
+                            addOtherScreen()
                         }
                     }
                 }
@@ -51,14 +63,14 @@ class MainActivity : ComponentActivity() {
     }
 }
 
-fun NavGraphBuilder.addDetailEmailScreen() {
+fun NavGraphBuilder.addOtherScreen() {
     composable(
-        route = Screen.EmailDetail.route(),
-        arguments = Screen.EmailDetail.arguments()
+        route = Screen.Other.route(),
+        arguments = Screen.Other.arguments()
     ) {
         //The second way to use the Inject function
-        Inject(App.instance.getFactoryViewModelAssistedFactory()) {
-            DetailEmailScreen()
+        Inject(App.other.getFactoryViewModelAssistedFactory()) {
+            OtherScreen()
         }
     }
 }

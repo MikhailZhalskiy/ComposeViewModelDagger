@@ -1,9 +1,9 @@
-package com.mw.example.composeviewmodeldagger.di
+package com.mw.example.composeviewmodeldagger.common.di
 
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
-import com.mw.example.composeviewmodeldagger.extensions.ViewModelAssistedFactory
-import com.mw.example.composeviewmodeldagger.extensions.ViewModelFactory
+import com.mw.example.composeviewmodeldagger.common.ViewModelAssistedFactory
+import com.mw.example.composeviewmodeldagger.common.ViewModelFactory
 import javax.inject.Inject
 import javax.inject.Provider
 

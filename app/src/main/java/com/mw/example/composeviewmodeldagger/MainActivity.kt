@@ -26,7 +26,7 @@ class MainActivity : ComponentActivity() {
             val navController = rememberNavController()
             ComposeViewModelDaggerTheme {
                 //The first way to use the Inject function
-                Inject(App.app.getFactoryViewModelAssistedFactory()) {
+                Inject(App.app.getViewModelFactory()) {
                     Scaffold {
                         NavHost(
                             navController = navController,

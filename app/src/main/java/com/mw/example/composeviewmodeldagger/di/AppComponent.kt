@@ -7,5 +7,5 @@ import dagger.Component
     modules = [AppViewModelModule::class]
 )
 interface AppComponent {
-    fun getFactoryViewModelAssistedFactory(): ViewModelFactory
+    fun getViewModelFactory(): ViewModelFactory
 }

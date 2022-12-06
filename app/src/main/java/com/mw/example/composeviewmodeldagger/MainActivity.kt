@@ -3,41 +3,62 @@ package com.mw.example.composeviewmodeldagger
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.*
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.NavGraphBuilder
+import androidx.navigation.compose.NavHost
+import androidx.navigation.compose.composable
+import androidx.navigation.compose.rememberNavController
+import com.mw.example.composeviewmodeldagger.extensions.Inject
+import com.mw.example.composeviewmodeldagger.ui.screen.DetailEmailScreen
+import com.mw.example.composeviewmodeldagger.ui.screen.EmailListScreen
+import com.mw.example.composeviewmodeldagger.ui.screen.Screen
 import com.mw.example.composeviewmodeldagger.ui.theme.ComposeViewModelDaggerTheme
 
+@OptIn(ExperimentalMaterial3Api::class)
 class MainActivity : ComponentActivity() {
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
+            val navController = rememberNavController()
             ComposeViewModelDaggerTheme {
-                // A surface container using the 'background' color from the theme
-                Surface(
-                    modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    Greeting("Android")
+                //The first way to use the Inject function
+                Inject(App.instance.getFactoryViewModelAssistedFactory()) {
+                    Scaffold {
+                        NavHost(
+                            navController = navController,
+                            startDestination = Screen.EmailList.route(),
+                            Modifier.padding(it)
+                        ) {
+
+                            composable(route = Screen.EmailList.route()) { navBackStackEntry ->
+                                navBackStackEntry.destination
+                                EmailListScreen(
+                                    navigateEmailDetailScreen = { email ->
+                                        navController.navigate(Screen.EmailDetail.createRouteWithArgs(email))
+                                    }
+                                )
+                            }
+
+                            addDetailEmailScreen()
+                        }
+                    }
                 }
             }
         }
     }
 }
 
-@Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DefaultPreview() {
-    ComposeViewModelDaggerTheme {
-        Greeting("Android")
+fun NavGraphBuilder.addDetailEmailScreen() {
+    composable(
+        route = Screen.EmailDetail.route(),
+        arguments = Screen.EmailDetail.arguments()
+    ) {
+        //The second way to use the Inject function
+        Inject(App.instance.getFactoryViewModelAssistedFactory()) {
+            DetailEmailScreen()
+        }
     }
 }

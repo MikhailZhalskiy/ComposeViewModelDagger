@@ -38,7 +38,11 @@ class MainActivity : ComponentActivity() {
                                 navBackStackEntry.destination
                                 EmailListScreen(
                                     navigateEmailDetailScreen = { email ->
-                                        navController.navigate(Screen.EmailDetail.createRouteWithArgs(email))
+                                        navController.navigate(
+                                            Screen.EmailDetail.createRouteWithArgs(
+                                                email
+                                            )
+                                        )
                                     }
                                 )
                             }
@@ -49,7 +53,11 @@ class MainActivity : ComponentActivity() {
                             ) {
                                 DetailEmailScreen(
                                     navigateOtherScreen = { other ->
-                                        navController.navigate(Screen.Other.createRouteWithArgs(other))
+                                        navController.navigate(
+                                            Screen.Other.createRouteWithArgs(
+                                                other
+                                            )
+                                        )
                                     }
                                 )
                             }

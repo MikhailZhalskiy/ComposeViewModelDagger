@@ -12,7 +12,7 @@ class DetailEmailViewModel @AssistedInject constructor(
 ) : ViewModel() {
 
     @AssistedFactory
-    interface Factory: ViewModelAssistedFactory<DetailEmailViewModel>
+    interface Factory : ViewModelAssistedFactory<DetailEmailViewModel>
 
     fun getArg(): Screen.EmailDetail.Arg = Screen.EmailDetail.getArg(handle)
 }

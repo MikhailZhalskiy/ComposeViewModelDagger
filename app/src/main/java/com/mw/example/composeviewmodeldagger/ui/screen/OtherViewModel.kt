@@ -12,7 +12,7 @@ class OtherViewModel @AssistedInject constructor(
 ) : ViewModel() {
 
     @AssistedFactory
-    interface Factory: ViewModelAssistedFactory<OtherViewModel>
+    interface Factory : ViewModelAssistedFactory<OtherViewModel>
 
     fun getArg(): Screen.Other.Arg = Screen.Other.getArg(handle)
 }

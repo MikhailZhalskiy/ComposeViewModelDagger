@@ -10,14 +10,14 @@ sealed class Screen {
     protected abstract val route: String
     abstract fun route(): String
 
-    object EmailList: Screen() {
+    object EmailList : Screen() {
 
         override val route: String = "email_list"
 
         override fun route(): String = route
     }
 
-    object EmailDetail: Screen() {
+    object EmailDetail : Screen() {
 
         override val route: String = "email_detail"
         private const val emailArg = "email"
@@ -43,7 +43,7 @@ sealed class Screen {
         }
     }
 
-    object Other: Screen() {
+    object Other : Screen() {
 
         override val route: String = "other_screen"
         private const val otherArg = "other_arg"

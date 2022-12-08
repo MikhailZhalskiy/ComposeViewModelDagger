@@ -14,7 +14,7 @@ class EmailListViewModel @AssistedInject constructor(
 ) : ViewModel() {
 
     @AssistedFactory
-    interface Factory: ViewModelAssistedFactory<EmailListViewModel>
+    interface Factory : ViewModelAssistedFactory<EmailListViewModel>
 
     private val listIds = MutableStateFlow(createListId())
     fun getListId(): StateFlow<List<String>> = listIds

@@ -6,7 +6,7 @@ import com.mw.example.composeviewmodeldagger.di.DaggerAppComponent
 import com.mw.example.composeviewmodeldagger.di.DaggerOtherComponent
 import com.mw.example.composeviewmodeldagger.di.OtherComponent
 
-class App: Application() {
+class App : Application() {
 
     override fun onCreate() {
         super.onCreate()
